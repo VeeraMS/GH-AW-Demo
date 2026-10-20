@@ -17,7 +17,7 @@ export function calculateOrder({
   }
 
   const discountCents = Math.round(
-    ((subtotalCents + shippingCents) * discountPercent) / 100,
+    (subtotalCents * discountPercent) / 100,
   );
   const discountedSubtotalCents = subtotalCents - discountCents;
   const taxCents = Math.round((discountedSubtotalCents * taxPercent) / 100);

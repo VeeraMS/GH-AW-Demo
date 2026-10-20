@@ -85,6 +85,16 @@ test("rejects invalid percentage rates", () => {
   }
 });
 
+test("does not discount shipping when merchandise discount and paid shipping combine", () => {
+  const result = calculateOrder({
+    subtotalCents: 10000,
+    shippingCents: 1000,
+    discountPercent: 10,
+  });
+  assert.equal(result.discountCents, 1000);
+  assert.equal(result.totalCents, 10000);
+});
+
 test("rejects calculated amounts outside the supported integer range", () => {
   assert.throws(
     () => calculateOrder({
