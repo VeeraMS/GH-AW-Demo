@@ -10,6 +10,7 @@ engine: copilot
 
 permissions:
   contents: read
+  copilot-requests: write
   issues: read
   pull-requests: read
 
