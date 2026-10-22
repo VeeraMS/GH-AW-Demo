@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Everyday Market | Good things for everyday living</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <div class="announcement">A little upgrade goes a long way. Enjoy 10% off merchandise in this demo.</div>
+  <header class="site-header shell">
+    <a class="brand" href="/" aria-label="Everyday Market home"><span class="brand-mark">e.</span> everyday<span class="brand-light">market</span></a>
+    <nav aria-label="Main navigation"><a class="active" href="#catalog">Shop all</a><a href="#promise">Our promise</a></nav>
+    <div class="header-actions"><button id="theme-toggle" class="quiet" disabled title="Theme switching is a planned feature">Theme: soon</button><a class="cart-link" href="#cart">Bag <span id="cart-count">0</span></a></div>
+  </header>
+  <main class="shell">
+    <section class="hero">
+      <div><p class="eyebrow">LESS SCROLLING. BETTER FINDS.</p><h1>Good things.<br>Everyday living.</h1><p>Thoughtful tech and home essentials.<br>Discover your next everyday favorite.</p><a class="button primary" href="#catalog">Explore the collection <span aria-hidden="true">&rarr;</span></a><div class="hero-note"><span class="dot"></span> Curated for the way you live</div></div>
+      <div class="hero-art" aria-hidden="true"><span class="orbit orbit-one"></span><span class="orbit orbit-two"></span><div class="hero-headphones"></div><div class="floating-label">THE EVERYDAY EDIT<br><strong>Made for your moments.</strong></div><span class="edition">01 / 03</span></div>
+    </section>
+    <section id="promise" class="promises" aria-label="Store benefits"><span><b>01</b> Thoughtfully curated</span><span><b>02</b> $10 flat-rate shipping</span><span><b>03</b> Simulated payments only</span></section>
+    <div class="shop-layout">
+      <section id="catalog" aria-labelledby="collection-title">
+        <div class="section-heading"><div><p class="eyebrow">FIND YOUR EVERYDAY</p><h2 id="collection-title">The collection<span class="accent">.</span></h2></div><span id="product-count" class="muted">Loading collection...</span></div>
+        <div class="catalog-tools"><div id="categories" class="categories" role="group" aria-label="Filter by category"></div><label class="search"><span class="sr-only">Search products</span><input id="search" type="search" placeholder="Find something good..." maxlength="100"><span aria-hidden="true">&#9906;</span></label></div>
+        <p id="catalog-status" role="status"></p><div id="products" class="product-grid"></div>
+      </section>
+      <aside id="cart" class="bag" aria-labelledby="bag-title"><div class="bag-heading"><h2 id="bag-title">Your bag<span class="accent">.</span></h2><span class="eyebrow">THE GOOD STUFF</span></div><div id="cart-items"></div><div id="cart-totals"></div><a id="checkout" class="button primary checkout" href="/checkout" aria-disabled="true">Continue to checkout <span aria-hidden="true">&rarr;</span></a><p class="bag-note">Local demo. No real charges.<br>All prices in USD.</p></aside>
+    </div>
+    <section class="demo-note"><span class="eyebrow">BUILT TO LEARN</span><h2>A real storefront. A practical agent playground.</h2><p>This demo intentionally includes cart, filter, checkout and theme exercises. Payment is simulated; never enter real payment details.</p></section>
+  </main>
+  <footer class="shell"><a class="brand" href="/">everyday<span class="brand-light">market</span></a><span>Small upgrades. Better days.</span><span>GitHub Agentic Workflows demo</span></footer>
+  <p id="notification" class="notification" role="status" aria-live="polite"></p>
+</body>
+</html>

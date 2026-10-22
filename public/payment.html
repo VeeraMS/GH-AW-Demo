@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Demo payment | Everyday Market</title>
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="/styles.css"><script type="module" src="/payment.js"></script>
+</head>
+<body>
+  <div class="announcement">Sandbox checkout. No card details. No real charges.</div>
+  <header class="site-header shell"><a class="brand" href="/"><span class="brand-mark">e.</span> everyday<span class="brand-light">market</span></a><a href="/#cart">Back to your bag &larr;</a></header>
+  <main class="shell payment-layout"><section><p class="eyebrow">ONE LAST LITTLE STEP</p><h1>Make it<br>an everyday.</h1><p class="muted">This is a simulated payment. Never enter real card or personal details.</p><div class="payment-method"><span class="eyebrow">PAYMENT METHOD</span><h2>Demo wallet</h2><p>No bank connected. Your order is stored in local SQLite.</p></div></section><section class="bag payment-bag" aria-labelledby="order-title"><h2 id="order-title">Order summary<span class="accent">.</span></h2><p id="payment-status" role="status">Preparing your order...</p><div id="order-items"></div><div id="order-totals"></div><button id="pay" class="button primary checkout" disabled>Simulate payment &rarr;</button><a class="back-link" href="/">Return to store</a></section></main>
+</body>
+</html>

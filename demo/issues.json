@@ -1,0 +1,32 @@
+[
+  {
+    "id": "CART-001",
+    "title": "[fix] CART-001 Repeated Add to bag does not accumulate quantities",
+    "kind": "bug",
+    "body": "Add Morning ritual coffee maker twice. The bag still shows quantity 1 and a $100 merchandise subtotal; expected quantity 2 and $200. Explicit quantity + works. Reproduce with node --test --test-name-pattern=CART-001 exercises/storefront.check.js. Fix cumulative additions without weakening stock checks or session isolation."
+  },
+  {
+    "id": "CAT-001",
+    "title": "[fix] CAT-001 Electronics, Appliances and Mobiles filters show no products",
+    "kind": "bug",
+    "body": "Open the store and select Electronics, Appliances or Mobiles. Each shows no products instead of its three seeded products. All finds shows nine. GET /api/products?category=mobiles should return three mobiles. Search Nova within mobiles should return one; within appliances zero. Unknown categories must still return 400. Run node --test --test-name-pattern=CAT-001 exercises/storefront.check.js."
+  },
+  {
+    "id": "CHECKOUT-001",
+    "title": "[fix] CHECKOUT-001 Continue to checkout opens a missing page",
+    "kind": "bug",
+    "body": "Add any product, then click Continue to checkout. The browser navigates to /checkout and receives 404; expected a simulated payment page. /payment already works directly. Repair the actual navigation and verify bag -> payment -> simulated confirmation, cart clearing, refresh persistence and no duplicate stock deduction on repeat payment. Empty bags must not create orders. Run node --test --test-name-pattern=CHECKOUT-001 exercises/storefront.check.js and perform the browser flow in docs/exercises.md."
+  },
+  {
+    "id": "THEME-001",
+    "title": "[feature] THEME-001 Add an accessible persistent day/night theme switch",
+    "kind": "enhancement",
+    "body": "The header shows a disabled Theme: soon control. Implement a keyboard-accessible day/night toggle on both storefront and payment pages. On first visit use system preference; save an explicit selection locally, preserve it on reload and navigation, and keep text/focus contrast usable. Gracefully report unavailable local storage without breaking shopping. The source-level THEME-001 acceptance check is only a starting point: add browser interaction and persistence tests. See docs/exercises.md. Run node --test --test-name-pattern=THEME-001 exercises/storefront.check.js."
+  },
+  {
+    "id": "PRICE-001",
+    "title": "[fix] PRICE-001 Percentage discount incorrectly reduces shipping charges",
+    "kind": "bug",
+    "body": "With one Morning ritual coffee maker ($100), flat shipping $10, automatic merchandise discount 10% and tax 0%, the bag shows $99. Expected discount $10 and total $100. Run npm run demo:pricing and node --test --test-name-pattern=PRICE-001 exercises/storefront.check.js. Discount merchandise only, round cents, never tax shipping, and preserve validation. Add regression coverage for paid shipping with discount and tax. This is the existing pricing exercise; keep any older shipping-discount issues linked as related, not silently closed."
+  }
+]

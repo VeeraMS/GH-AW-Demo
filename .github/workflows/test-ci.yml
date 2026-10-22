@@ -1,0 +1,52 @@
+name: Test CI
+
+on:
+  push:
+    branches: [main, "demo/**"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      exercise:
+        description: "Optional intentional acceptance failure for the CI investigator demo"
+        type: choice
+        default: baseline
+        options:
+          - baseline
+          - CART-001
+          - CAT-001
+          - CHECKOUT-001
+          - THEME-001
+          - PRICE-001
+          - all
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Run tests
+        run: npm test
+      - name: Run selected acceptance exercise
+        if: github.event_name == 'workflow_dispatch' && inputs.exercise != 'baseline'
+        env:
+          EXERCISE: ${{ inputs.exercise }}
+        shell: bash
+        run: |
+          case "$EXERCISE" in
+            all) npm run test:acceptance ;;
+            CART-001|CAT-001|CHECKOUT-001|THEME-001|PRICE-001)
+              node --test --test-name-pattern="$EXERCISE" exercises/storefront.check.js ;;
+            *) echo "Unknown exercise selection" >&2; exit 1 ;;
+          esac
